@@ -1,4 +1,4 @@
-FROM openjdk:8u121-jdk-alpine
+FROM docker.freiheit.com/java
 
 RUN apk add --no-cache git openssh-client curl unzip bash ttf-dejavu coreutils
 
