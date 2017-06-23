@@ -1,4 +1,4 @@
-FROM docker.freiheit.com/hunter-ci/java:1.8.131
+FROM eu.gcr.io/hunter-ci/java:1.8.131
 
 RUN apk add --no-cache git openssh-client curl unzip bash ttf-dejavu coreutils
 
