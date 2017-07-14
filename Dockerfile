@@ -62,7 +62,7 @@ EXPOSE ${agent_port}
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
-USER ${user}
+#USER ${user}
 
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
@@ -71,3 +71,11 @@ ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 # from a derived Dockerfile, can use `RUN plugins.sh active.txt` to setup /usr/share/jenkins/ref/plugins from a support bundle
 COPY plugins.sh /usr/local/bin/plugins.sh
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
+
+RUN /usr/local/bin/install-plugins.sh docker-slaves \
+    kubernetes:0.11 \
+    workflow-aggregator:2.5 \
+    credentials-binding:1.12 \
+    git:3.3.2 \
+    gradle:1.27.1 \
+    google-login:1.3
