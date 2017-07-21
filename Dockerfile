@@ -76,6 +76,9 @@ RUN /usr/local/bin/install-plugins.sh docker-slaves \
     kubernetes:0.11 \
     workflow-aggregator:2.5 \
     credentials-binding:1.12 \
-    git:3.3.2 \
+    git:3.4.1 \
     gradle:1.27.1 \
-    google-login:1.3
+    google-login:1.3 \
+    gerrit-trigger:2.23.3
+
+COPY jenkins.ssh* /root/
